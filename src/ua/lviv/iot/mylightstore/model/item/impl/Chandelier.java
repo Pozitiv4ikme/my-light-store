@@ -6,20 +6,14 @@ import ua.lviv.iot.mylightstore.model.item.Chandelierable;
 public class Chandelier extends Item implements Chandelierable {
     private final String material;
 
-    public Chandelier(String name, String manufacture, double price, double power, Category category, String material) {
-        super(name, manufacture, price, power, category);
+    public Chandelier(String name, String manufacture, double price, double power, String material) {
+        super(name, manufacture, price, power, Category.CHANDELIER);
         this.material = material;
-        super.setCategory(Category.CHANDELIER);
     }
 
     @Override
     public String getMaterial() {
         return material;
-    }
-
-    @Override
-    public void setCategory(Category category) {
-        throw new IllegalArgumentException("you choose another category");
     }
 
     @Override

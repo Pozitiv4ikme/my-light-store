@@ -8,7 +8,7 @@ public class Item implements Itemable {
     private final String manufacturer;
     private final double price;
     private final double power;
-    private Category category;
+    private final Category category;
 
     public Item(String name, String manufacturer, double price, double power, Category category) {
         this.name = name;
@@ -41,10 +41,6 @@ public class Item implements Itemable {
     @Override
     public Category getCategory() {
         return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
     }
 
     @Override

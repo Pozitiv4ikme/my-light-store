@@ -8,9 +8,9 @@ public class Nightlight extends Item implements Nightlightable {
     private final double height;
     private final double length;
 
-    public Nightlight(String name, String manufacture, double price, double power, Category category,
+    public Nightlight(String name, String manufacture, double price, double power,
                       double width, double height, double length) {
-        super(name, manufacture, price, power, category);
+        super(name, manufacture, price, power, Category.NIGHTLIGHT);
         this.height = height;
         this.length = length;
         this.width = width;
@@ -29,11 +29,6 @@ public class Nightlight extends Item implements Nightlightable {
     @Override
     public double getLength() {
         return length;
-    }
-
-    @Override
-    public void setCategory(Category category) {
-        throw new IllegalArgumentException("you choose another category");
     }
 
     @Override
