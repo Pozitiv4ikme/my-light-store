@@ -19,6 +19,9 @@ public class StoreManager {
     private final Store store;
 
     public StoreManager(Store store) {
+        if (null == store) {
+            throw new IllegalArgumentException("null store is not allowed");
+        }
         this.store = store;
     }
 

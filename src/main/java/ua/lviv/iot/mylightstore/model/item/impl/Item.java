@@ -53,4 +53,12 @@ public class Item implements Itemable {
                 ", category=" + category +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return Double.compare(item.price, price) == 0 && Double.compare(item.power, power) == 0 && name.equals(item.name) && manufacturer.equals(item.manufacturer) && category == item.category;
+    }
 }
