@@ -1,2 +1,2 @@
-# my-light-store
-project to implement my store to using Java
+# parse sentences
+Remove all exclamatory sentences from the text that contain less than the specified number of words.
