@@ -1,56 +1,58 @@
 package ua.lviv.iot.mylightstore.model.item.impl;
 
+import java.util.StringJoiner;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.ToString;
 import ua.lviv.iot.mylightstore.model.Category;
 import ua.lviv.iot.mylightstore.model.item.Itemable;
 
+/**
+ * My <b>Item class</b>.
+ * Item of the all store...
+ */
+@Getter
+@ToString
+@EqualsAndHashCode
 public class Item implements Itemable {
-    private final String name;
-    private final String manufacturer;
-    private final double price;
-    private final double power;
-    private final Category category;
 
-    public Item(String name, String manufacturer, double price, double power, Category category) {
-        this.name = name;
-        this.manufacturer = manufacturer;
-        this.price = price;
-        this.power = power;
-        this.category = category;
-    }
+  private static final String FIELDS_CSV = "name,manufacturer,price,power,"
+      + "category";
+  private final String name;
+  private final String manufacturer;
+  private final double price;
+  private final double power;
+  private final Category category;
 
-    @Override
-    public String getName() {
-        return name;
-    }
+  /**
+   * Constructor with all parameters...
+   *
+   * @param newName - name of new item
+   */
+  public Item(final String newName, final String newManufacturer, final double newPrice,
+      final double newPower, final Category newCategory) {
+    this.name = newName;
+    this.manufacturer = newManufacturer;
+    this.price = newPrice;
+    this.power = newPower;
+    this.category = newCategory;
+  }
 
-    @Override
-    public String getManufacturer() {
-        return manufacturer;
-    }
+  public static String getHeaders() {
+    return FIELDS_CSV;
+  }
 
-    @Override
-    public double getPrice() {
-        return price;
-    }
-
-    @Override
-    public double getPower() {
-        return power;
-    }
-
-    @Override
-    public Category getCategory() {
-        return category;
-    }
-
-    @Override
-    public String toString() {
-        return "Item{" +
-                "name='" + name + '\'' +
-                ", manufacturer='" + manufacturer + '\'' +
-                ", price=" + price +
-                ", power=" + power +
-                ", category=" + category +
-                '}';
-    }
+  /**
+   * Make new field string separated by commas with all available field of item object...
+   */
+  public String toCsv() {
+    StringJoiner stringJoiner = new StringJoiner(",");
+    return stringJoiner
+        .add(name)
+        .add(manufacturer)
+        .add(String.valueOf(price))
+        .add(String.valueOf(power))
+        .add(String.valueOf(category))
+        .toString();
+  }
 }
