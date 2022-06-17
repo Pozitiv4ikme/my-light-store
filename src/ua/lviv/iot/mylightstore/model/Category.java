@@ -21,18 +21,7 @@ public enum Category {
         this.subCategories = List.of();
     }
 
-    public static void draw(Category category, int level) {
-        System.out.println("--".repeat(level) + category);
-        var subCategories = category.subCategories;
-
-        if (subCategories.isEmpty()) {
-            return;
-        }
-
-        level++;
-
-        for (var subCategory : subCategories) {
-            draw(subCategory, level);
-        }
+    public List<Category> getSubCategories() {
+        return subCategories;
     }
 }
